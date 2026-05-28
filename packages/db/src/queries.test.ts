@@ -13,7 +13,7 @@ vi.mock('../initDb', () => ({
 }))
 
 // Import after mock
-import { role, warehouse, employee, certification, certificationType } from '../queries/index'
+import { role, warehouse, employee } from '../queries/index'
 import { roles, warehouses, employees, certifications, certificationTypes } from '../schema'
 
 // Test database setup

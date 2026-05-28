@@ -1,7 +1,7 @@
 // Role Queries - Modular namespace pattern
 import { eq } from 'drizzle-orm'
 import { db } from '../initDb.js'
-import { roles, type Role, type NewRole } from '../schema.js'
+import { roles, type Role } from '../schema.js'
 
 export const role = {
   create: async (data: { name: string }): Promise<Role> => {

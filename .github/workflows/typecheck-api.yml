@@ -25,4 +25,6 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm --filter @electron-template/db build
+
       - run: pnpm --filter @electron-template/api typecheck

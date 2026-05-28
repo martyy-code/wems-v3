@@ -1,7 +1,7 @@
 // Employee Queries - Modular namespace pattern
 import { eq, and } from 'drizzle-orm'
 import { db } from '../initDb.js'
-import { employees, type Employee, type NewEmployee } from '../schema.js'
+import { employees, type Employee } from '../schema.js'
 
 type EmployeeListFilters = {
   isActive?: boolean
@@ -57,7 +57,6 @@ export const employee = {
     }
 
     if (filters.search) {
-      const searchLower = `%${filters.search.toLowerCase()}%`
       // Note: SQLite LIKE is case-insensitive for ASCII, need ilike alternative for broader search
       conditions.push(
         eq(employees.isActive, filters.isActive ?? true) // Re-add active filter
