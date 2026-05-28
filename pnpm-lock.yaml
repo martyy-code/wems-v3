@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      electron:
+        specifier: ^35.7.5
+        version: 35.7.5
     devDependencies:
       '@electron/rebuild':
         specifier: ^4.0.4
@@ -251,7 +255,7 @@ importers:
   packages/db:
     dependencies:
       better-sqlite3:
-        specifier: ^12.10.0
+        specifier: 12.10.0
         version: 12.10.0
       drizzle-orm:
         specifier: ^0.45.2

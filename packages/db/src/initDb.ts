@@ -23,9 +23,21 @@ export function initDatabase(config: DatabaseConfig): { sqlite: Database.Databas
   return { sqlite, db }
 }
 
-export async function getDb() {
+// Get the initialized db instance
+export function getDb(): ReturnType<typeof drizzle> {
   if (!_db) {
     throw new Error('Database not initialized. Call initDatabase() first.')
   }
   return _db
 }
+
+// Convenience export for query modules - initialized by main process
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const db: any = new Proxy({}, {
+  get(_target, prop) {
+    if (!_db) {
+      throw new Error('Database not initialized. Call initDatabase() first.')
+    }
+    return (_db as any)[prop as string]
+  }
+})

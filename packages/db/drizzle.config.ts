@@ -1,14 +1,10 @@
 import { defineConfig } from "drizzle-kit";
-import { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   dialect: "sqlite",
-  schema: resolve(__dirname, "./src/schema.ts"),
-  out: resolve(__dirname, "./drizzle"),
+  schema: "./src/schema.ts",
+  out: "./drizzle",
   dbCredentials: {
-    url: resolve(__dirname, "../../apps/desktop/data/database.sqlite"),
+    url: "../../apps/desktop/data/database.sqlite",
   },
 });

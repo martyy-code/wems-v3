@@ -120,6 +120,15 @@ The desktop app renderer dev server and IPC communication use `127.0.0.1` (not `
 This is intentional: some networks block localhost resolution, causing ERR_CONNECTION_TIMED_OUT.
 Using the explicit IP avoids this issue.
 
+## Development Notes
+
+### better-sqlite3 rebuild requirement
+When running `dev:desktop` fails with "Could not locate the bindings file" for `better-sqlite3`, rebuild it for Electron:
+```bash
+pnpm exec electron-rebuild -f -w better-sqlite3
+```
+This is needed because `better-sqlite3` is a native module that must be compiled against Electron's Node version, not the system Node.
+
 ## Issue Labels
 
 GitHub issues use a structured label taxonomy:
