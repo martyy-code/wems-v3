@@ -19,11 +19,12 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint src --ignore-pattern dist"
   },
   "dependencies": {
     "better-sqlite3": "12.10.0",
-    "drizzle-orm": "^0.45.2"
+    "drizzle-orm": "^0.45.2",
+    "drizzle-zod": "^0.8.3"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",

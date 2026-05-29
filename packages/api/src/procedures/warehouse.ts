@@ -1,10 +1,10 @@
 // Warehouse Procedures - oRPC handlers for warehouse operations
-import { os } from '@orpc/server'
 import { z } from 'zod'
-import { queries } from '@electron-template/db'
+import { os } from '@orpc/server'
+import { queries, schemas } from '@electron-template/db'
 
 const create = os
-  .input(z.object({ name: z.string() }))
+  .input(schemas.warehouse.insert.pick({ name: true }))
   .handler(async ({ input }) => {
     return queries.warehouse.create(input)
   })

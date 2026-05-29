@@ -7,7 +7,7 @@
     "build": "electron-vite build && node -e \"require('fs').cpSync('../web/dist', 'out/renderer', {recursive: true})\"",
     "preview": "electron-vite preview",
     "release": "electron-vite build && node -e \"require('fs').cpSync('../web/dist', 'out/renderer', {recursive: true})\" && electron-builder --win --config electron-builder.json",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

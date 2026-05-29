@@ -63,3 +63,6 @@ export { queries } from './queries/index.js'
 
 // Re-export individual query modules for convenience
 export { role, warehouse, employee, certification, certificationType, caces, medical, training, driving } from './queries/index.js'
+
+// Zod schemas generated from Drizzle schema
+export * as schemas from './schemas.js'

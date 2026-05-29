@@ -1,18 +1,18 @@
 // Employee Procedures - oRPC handlers for employee operations
-import { os } from '@orpc/server'
 import { z } from 'zod'
-import { queries, contractTypesList } from '@electron-template/db'
+import { os } from '@orpc/server'
+import { queries, schemas } from '@electron-template/db'
 
 const create = os
-  .input(z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    email: z.string().optional(),
-    phone: z.string().optional(),
-    arrivalDate: z.string(),
-    contractType: z.enum(contractTypesList as [string, ...string[]]),
-    roleId: z.string(),
-    warehouseId: z.string()
+  .input(schemas.employee.insert.pick({
+    firstName: true,
+    lastName: true,
+    email: true,
+    phone: true,
+    arrivalDate: true,
+    contractType: true,
+    roleId: true,
+    warehouseId: true
   }))
   .handler(async ({ input }) => {
     return queries.employee.create({
