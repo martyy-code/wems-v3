@@ -4,9 +4,9 @@ name: Typecheck (SDK)
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   typecheck:
@@ -24,5 +24,9 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+
+      - run: pnpm --filter @electron-template/db build
+
+      - run: pnpm --filter @electron-template/api build
 
       - run: pnpm --filter @electron-template/sdk typecheck

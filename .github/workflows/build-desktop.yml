@@ -4,9 +4,9 @@ name: Build (Desktop)
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   build:
@@ -25,10 +25,12 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Build SDK
-        run: pnpm --filter @electron-template/sdk build
+      - run: pnpm --filter @electron-template/db build
 
-      - name: Build web app
-        run: pnpm --filter web build
+      - run: pnpm --filter @electron-template/api build
+
+      - run: pnpm --filter @electron-template/sdk build
+
+      - run: pnpm --filter web build
 
       - run: pnpm --filter desktop build

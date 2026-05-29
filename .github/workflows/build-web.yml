@@ -4,9 +4,9 @@ name: Build (Web)
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   build:
@@ -24,5 +24,11 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+
+      - run: pnpm --filter @electron-template/db build
+
+      - run: pnpm --filter @electron-template/api build
+
+      - run: pnpm --filter @electron-template/sdk build
 
       - run: pnpm --filter web build
