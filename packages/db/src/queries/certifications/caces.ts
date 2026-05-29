@@ -14,7 +14,7 @@ export const caces = {
     return caces.getById(id) as Promise<CacesCertification>
   },
 
-  listByEmployee: async (employeeId: string): Promise<CacesCertification[]> => {
+  listByEmployee: async (_employeeId: string): Promise<CacesCertification[]> => {
     const result = await db.select().from(cacesCertifications).orderBy(cacesCertifications.category)
     return result
   },

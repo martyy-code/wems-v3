@@ -1,7 +1,7 @@
 // Online Training Queries - Modular namespace pattern
 import { eq } from 'drizzle-orm'
 import { db } from '../../initDb.js'
-import { onlineTrainings, type OnlineTraining, type NewOnlineTraining } from '../../schema.js'
+import { onlineTrainings, type OnlineTraining } from '../../schema.js'
 
 export const training = {
   create: async (data: {

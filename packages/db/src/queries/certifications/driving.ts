@@ -1,7 +1,7 @@
 // Driving Authorization Queries - Modular namespace pattern
 import { eq } from 'drizzle-orm'
 import { db } from '../../initDb.js'
-import { drivingAuthorizations, type DrivingAuthorization, type NewDrivingAuthorization } from '../../schema.js'
+import { drivingAuthorizations, type DrivingAuthorization } from '../../schema.js'
 
 export const driving = {
   create: async (data: {

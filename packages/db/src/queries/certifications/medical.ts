@@ -21,7 +21,7 @@ export const medical = {
     return medical.getById(id) as Promise<MedicalVisit>
   },
 
-  listByEmployee: async (employeeId: string): Promise<MedicalVisit[]> => {
+  listByEmployee: async (_employeeId: string): Promise<MedicalVisit[]> => {
     return db.select().from(medicalVisits)
       .orderBy(medicalVisits.visitDate)
   },

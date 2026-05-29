@@ -31,9 +31,10 @@ export function getDb(): ReturnType<typeof drizzle> {
   return _db
 }
 
-// Convenience export for query modules - initialized by main process
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const db: any = new Proxy({}, {
+type DbProxy = Record<string, any>
+// Convenience export for query modules - initialized by main process
+export const db = new Proxy({} as DbProxy, {
   get(_target, prop) {
     if (!_db) {
       throw new Error('Database not initialized. Call initDatabase() first.')
